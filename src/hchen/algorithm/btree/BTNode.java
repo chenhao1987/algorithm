@@ -8,21 +8,17 @@ public class BTNode {
 	
 	private BTNode[] children = new BTNode[BTree.RANK];
 	
-	private BTNode parent;
-
-	public BTNode(BTNode parent){
-		this.parent = parent;
+	public BTNode(BTNode origin, int start, int count){
+		if(origin != null && origin.valueIndex >= start + count){
+			for(int i=start;i<start+count+1;i++){
+				values[i] = origin.values[i];
+				
+				//TODO childrenÒ²ÒªĞŞ¸Ä
+			}
+		}
 	}
 	
 	
-	public BTNode getParent() {
-		return parent;
-	}
-
-	public void setParent(BTNode parent) {
-		this.parent = parent;
-	}
-
 	public int[] getValues() {
 		return values;
 	}
